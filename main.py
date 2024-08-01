@@ -1,7 +1,5 @@
-from utils.graph import Graph
+from algorithms.kruskal import kruskal
 
 if __name__ == '__main__':
-    connections = [('A', 'B'), ('B', 'C'), ('B', 'D'), ('C', 'D'), ('E', 'F'), ('F', 'C')]
-    graph = Graph(connections)
-    print(graph)
+    kruskal()
     
