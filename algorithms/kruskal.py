@@ -10,10 +10,8 @@ def kruskal(connections):
     mst = []
     # index for sorted edges
     i = 0
-    # index used for mst[]
-    e = 0
 
-    while e < graph.V() - 1:
+    while len(mst) < graph.V() - 1:
         u, v, w = sorted_graph[i]
         i += 1
 
@@ -22,7 +20,6 @@ def kruskal(connections):
 
         # if doesnt create a cycle
         if x != y:
-            e += 1
             mst.append([u, v, w])
             union_find.union(x, y)
 

@@ -1,4 +1,7 @@
 from algorithms.kruskal import kruskal
+from algorithms.prim import prim
+from algorithms.bfs import bfs
+from algorithms.dfs import dfs
 
 if __name__ == '__main__':
     connections = [(0, 1, 4), (0, 7, 8), 
@@ -11,4 +14,5 @@ if __name__ == '__main__':
                    (7, 8, 7)]
 
     kruskal(connections)
+    prim(connections)
     

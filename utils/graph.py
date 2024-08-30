@@ -14,7 +14,7 @@ class Graph():
             weight = connection[2] if len(connection) > 2 else None
 
             if (node2):
-                self.add(node1, node2)
+                self.add(node1, node2, weight)
                 self._edges.append([node1, node2, weight])
             else:
                 self._graph[node1]
