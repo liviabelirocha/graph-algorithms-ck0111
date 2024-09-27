@@ -13,7 +13,7 @@ def dijkstra(connections, start):
 
     heap = [(0, start)]
 
-    while len(heap) != 0:
+    while heap:
         _, u = heapq.heappop(heap)
         dict[u]['color'] = 'black'
 
@@ -27,4 +27,4 @@ def dijkstra(connections, start):
 
     print('VERTIX | PARENT | WEIGHT')
     for i in dict: 
-        print(f"{i} | {dict[i]['parent']} | {dict[i]['weight']}") 
+        print(f"{i} | {dict[i]['parent']} | {dict[i]['weight']}")

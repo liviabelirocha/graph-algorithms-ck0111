@@ -5,6 +5,7 @@ class Graph():
         self._graph = defaultdict(list)
         self._edges = []
         self._directed = directed
+        self._vertices = []
         self.add_connections(connections)
 
     def add_connections(self, connections):
@@ -12,6 +13,11 @@ class Graph():
             node1 = connection[0]
             node2 = connection[1] if len(connection) > 1 else None
             weight = connection[2] if len(connection) > 2 else None
+
+            if node1 not in self._vertices:
+                self._vertices.append(node1)
+            if node2 not in self._vertices:
+                self._vertices.append(node2)
 
             if (node2):
                 self.add(node1, node2, weight)
@@ -26,11 +32,16 @@ class Graph():
             self._graph[node2].append((node1, weight))
 
     def sort(self):
-      return sorted(self._edges, key=lambda x: x[2])
+        return sorted(self._edges, key=lambda x: x[2])
     
     def V(self):
-        return len(self._graph.keys())
+        return len(self._vertices)
+    
+    def get_weight(self, u, v):
+        for vertix, weight in self._graph[u]:
+            if vertix == v:
+                return weight
+        return 0
 
     def __str__(self):
         return f'{self.__class__.__name__} ({dict(self._graph)})'
-    
